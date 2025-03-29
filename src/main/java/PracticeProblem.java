@@ -33,16 +33,34 @@ public class PracticeProblem {
 					smallest=j;
 				}
 				steps++;
+		
 			}
 				
 			double temp=nums[smallest];
 			nums[smallest]=nums[i];
 			nums[i]=temp;
-			swaps=swaps+3;
+			swaps=swaps+4;
 			
 		}
 		int[] answer= {swaps, steps};
 		return answer;
-
+	}
+	public static int[] insertionSort(double[] nums){
+		int swaps=0;
+		int steps=0;
+		for(int i=0; i <nums.length;i++){
+			double key=nums[i];
+			int index=i-1;
+			while(index>=0 && key< nums[index]){
+				steps++;
+				nums[index+1]=nums[index];
+				index--;
+				swaps++;
+			}
+			nums[index+1]=key;
+			swaps++;
+		}
+		int[] answer={swaps, steps};
+		return answer;
 	}
 }
