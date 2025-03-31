@@ -1,7 +1,8 @@
 public class PracticeProblem {
 
 	public static void main(String args[]) {
-		double arr[] = {9, 7, 4, 2, 1, 0};
+		double arr[] = {155.2, 155.1, 1, 5, 3, 2, 7};
+		//System.out.println(bubbleSort(arr)[0]);
 		System.out.println(leastSwaps(arr));
 		
 
@@ -71,11 +72,18 @@ public class PracticeProblem {
 		return answer;
 	}
 	public static String leastSwaps(double[] nums){
-		double[] nums2=nums;
-		double[] nums3=nums;
+		double[] nums2 = new double[nums.length];
+		double[] nums3=new double[nums.length];
+		for(int z=0;z<nums.length ;z++){
+			nums2[z]=nums[z];
+			nums3[z]=nums[z];
+			}
+			System.out.println();
+		
 		int swaps= 0;
 		boolean swap=true;
 		for(int i=0; i<nums.length-1 && swap;i++){
+		
 			swap=false;
 			for(int j =0; j<nums.length-1-i;j++){
 				if (nums[j]>nums[j+1]){
@@ -83,9 +91,14 @@ public class PracticeProblem {
 					nums[j]=nums[j+1];
 					nums[j+1]=temp;
 					swaps+=3;
+					swap=true;
 				}
 			}
 		}
+		System.out.println();
+		int swaps3=0;
+		
+		
 		int swaps2=0;
 		for(int x=0;x<nums2.length; x++){
 			int smallest=x;
@@ -100,8 +113,6 @@ public class PracticeProblem {
 			nums2[x]=temp;
 			swaps2+=3;
 		}
-		int swaps3=0;
-		
 		for(int h=0; h <nums3.length;h++){
 			double key=nums3[h];
 			swaps3++;
